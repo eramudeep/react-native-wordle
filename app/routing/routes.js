@@ -7,17 +7,16 @@ import OnBoarding from '../screens/OnBoarding';
 import {appColors} from '../utils/appColors';
 
 export const RoutesList = [
-  {
+ /*  {
     name: 'OnBoarding',
     component: OnBoarding,
     options: {
       tabBarBadge: 3,
       tabBarLabel: 'OnBoarding',
-      tabBarButton:()=>null
-      //.... rest are the params for Tab.Screen See : https://reactnavigation.org/docs/bottom-tab-navigator/#options
+      tabBarButton:()=>null 
     },
   },
-
+ */
 
   {
     name: 'Home',

@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     label:{
         fontSize:scale(14),
         color:appColors.black,
+        fontWeight:'bold'
     },
     light:{ 
         color:appColors.black

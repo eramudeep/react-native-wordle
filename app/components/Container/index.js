@@ -1,12 +1,12 @@
 import React from 'react'
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, View,SafeAreaView } from 'react-native'
 import { scale } from 'react-native-size-matters'
 import ReduxWrapper from '../../redux/ReduxWrapper'
 import { appColors } from '../../utils/appColors'
 
 function Container({children,isScrollable, appState:{darkMode}}) { 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             {
                 isScrollable? <ScrollView>
                     <View style={[styles.innerView, darkMode ? styles.dark : styles.light ]}>
@@ -16,7 +16,7 @@ function Container({children,isScrollable, appState:{darkMode}}) {
                 :
                 <View style={[styles.innerView, darkMode ? styles.dark : styles.light ]}>{children}</View>
             }
-        </View>
+        </SafeAreaView>
     )
 }
 const styles = StyleSheet.create({
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     },
     innerView:{
         flex:1,
-        paddingHorizontal:scale(20)
+        paddingHorizontal:scale(10)
     },
     light:{ 
         backgroundColor:appColors.white

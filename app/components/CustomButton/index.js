@@ -16,16 +16,15 @@ export default function index({label,style,onPress,labelStyle}) {
 const styles = StyleSheet.create({
     container:{
         height:scale(50),
-        backgroundColor:appColors.primary,
-        borderRadius:scale(30),
+        backgroundColor:appColors.btn,
+        borderRadius:scale(5),
         justifyContent:"center",
         alignItems:"center",
         overflow:"hidden",
-        marginVertical:scale(10)
+        //marginVertical:scale(10)
     },
     label:{
-        fontSize:scale(16),
-        fontWeight:"500",
+        fontSize:scale(12), 
         color:appColors.white
     }
 })

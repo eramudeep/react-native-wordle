@@ -9,7 +9,7 @@ const sagaMiddleware = createSagaMiddleware()
 const persistConfig = {
     key: 'root',
     storage: AsyncStorage,
-    //blacklist:[] //Add reducer if you don`t want to presist it
+    blacklist:['appState'] //Add reducer if you don`t want to presist it
   }
 const middleWares = [sagaMiddleware];
 
