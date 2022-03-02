@@ -6,12 +6,18 @@ import Error from '../Error';
 export default function index(props) {
   const [letter, setLetter] = useState();
   const [changed, setChanged] = useState(false);
-  const [letters, setLetters] = useState({});
-  const [help, setHelp] = useState(false);
+  const [letters, setLetters] = useState({}); 
   const [clicked, setClicked] = useState(0);
   const [error, setError] = useState('');
-  const [dark, setDark] = useState(false);
+   
 
+  const resetGame= ()=>{
+    setLetter(null)
+    setChanged(false)
+    setLetters({})
+    setClicked(0)
+    setError('')
+  }
   const onClickDown = (event) => {
     console.log({event});
     if (event.key == 'Enter') {
@@ -25,16 +31,7 @@ export default function index(props) {
       setClicked(clicked + 1);
     }
   };
-
-  useEffect(() => {
-    /*  window.addEventListener("keydown", onClickDown);
-  
-      return () => window.removeEventListener("keydown", onClickDown); */
-  });
-
-  useEffect(() => {
-    //  props.darkness(dark);
-  }, [dark]);
+ 
 
   const keyHandler = (letterValue) => {
     setLetter(letterValue);
@@ -55,6 +52,7 @@ export default function index(props) {
         clicks={clicked}
         letters={LettersHandler}
         error={setError}
+        resetGame={resetGame}
       />
       <Keyboard keyHandler={keyHandler} letters={letters} changed={changed} />
     </View>

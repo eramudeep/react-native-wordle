@@ -9,7 +9,7 @@ import {API_URL, API_TOKEN} from "@env" // Example for ENV
 import Container from 'Components/Container';
 
 export default function index({navigation}) {
-  console.log({API_URL, API_TOKEN});
+  //console.log({API_URL, API_TOKEN});
   const slides = [
     {
       key: 'two',

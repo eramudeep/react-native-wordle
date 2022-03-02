@@ -1,8 +1,8 @@
 {
-  "name": "Wordle",
+  "name": "wordle",
   "version": "0.0.1",
   "private": true,
-  "author": "NoddyCode <shammi.rathore66@gmail.com>",
+  "author": "Ram Singh <er.amudeep@gmail.com>",
   "publisher": "Amusoftech",
   "scripts": {
     "android": "react-native run-android",

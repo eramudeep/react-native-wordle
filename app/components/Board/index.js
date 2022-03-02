@@ -4,7 +4,7 @@ import React, {useState, useEffect} from 'react';
 import words from '../../utils/words';
 import Label from '../Label';
 import BoxGroup from '../Box/BoxGroup';
- 
+import GameResult from '../GameResult'
 const correct = 'CHANT';
 let defaulBoard = [];
 let defaultLetters = [];
@@ -31,8 +31,11 @@ export default function index(props) {
   const [win, setWin] = useState(false);
   const [lost, setLost] = useState(false);
   const [message, setMessage] = useState('');
-   
-  console.log({board});
+  const [isVisible, setisVisible] = useState(false)
+  const toggleModal = ()=>{
+    setisVisible(!isVisible)
+  }
+  //console.log({board});
   useEffect(() => {
     if (win || lost) {
       console.log('Game ended!');
@@ -74,6 +77,7 @@ export default function index(props) {
                     setRow(row + 1);
                     if (row === 5) {
                       setLost(true);
+                      toggleModal()
                       setTimeout(() => {
                         setMessage(`It was ${correct}`);
                       }, 750);
@@ -89,13 +93,14 @@ export default function index(props) {
 
                   if (correctLetters === 5) {
                     setWin(true);
+                    toggleModal()
                     setTimeout(() => {
                       setMessage('You WIN');
+
                     }, 750);
                   }
                   return prevBoard;
-                } else {
-                  //console.log("Word not in dictionary");
+                } else { 
                   props.error('Word not in dictionary');
                   setTimeout(() => {
                     props.error('');
@@ -114,14 +119,33 @@ export default function index(props) {
     props.letters(letters);
   }, [changed]);
 
+
+ 
+
+  const resetGame= ()=>{
+    props?.resetGame() 
+    setLetters(defaultLetters);
+     setBoard(defaulBoard);
+     setChanged(false);
+     setRow(0);
+     setCol(0);
+     setWin(false);
+     setLost(false);
+     setMessage('');
+     setisVisible(false)
+     
+  }
+
   return (
     <View>
+      
       {board.map((row, key) => {
         return <BoxGroup row={row} key={key} />;
       })}
       <View    style={{flexDirection:'row', justifyContent:'center', alignItems:'center'}} >
         <Label text={lost || win ? message : ''} />
       </View>
+      <GameResult resetGame={  resetGame} result={message} word={correct} toggleModal={toggleModal}  isVisible={isVisible}/>
     </View>
   );
 }

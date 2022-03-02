@@ -10,6 +10,7 @@ export default function index({
   wraperStyle,
   is80Pecent,
   is60Pecent,
+  is30Pecent,
   children,
 }) {
   const getHeight = () => {
@@ -17,9 +18,13 @@ export default function index({
       return 0.95;
     }
     if (is60Pecent) {
+
       return 0.75;
     }
-
+    if (is30Pecent) {
+      return 0.3;
+    }
+    
     return 0.5;
   };
   const _renderCloseHnadle = () => {

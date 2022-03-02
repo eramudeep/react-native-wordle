@@ -18,7 +18,7 @@ export default class index extends Component {
   }
 
   static getDerivedStateFromError({message, stack}) {
-    console.log({message, stack});
+    //console.log({message, stack});
     return {hasError: true, message, stack};
   }
   componentDidCatch(error, errorInfo) {
