@@ -11,6 +11,8 @@ Popular wordle game with  React Native.
 - [Android SDK](https://developer.android.com/sdk/) `23.0.1` or newer for Android development
 - [Android Marshmallow](https://www.android.com/versions/marshmallow-6-0/) or newer on your Android device to test properly
 
+
+![take-a-look](./docs/video.gif)
  
 ## Get Started
 
