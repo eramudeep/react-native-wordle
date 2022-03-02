@@ -3,8 +3,10 @@ import React, {useEffect, useState} from 'react';
 import {scale} from 'react-native-size-matters';
 import Label from '../Label';
 import {appColors} from '../../utils/appColors';
-
-export default function index(props) {
+import ReduxWrapper from '../../redux/ReduxWrapper';
+ 
+ function index(props) {
+   const darkMode = props?.appState?.darkMode
   const [state, setState] = useState(
     {label:{color:appColors.black}  }  ,
   );
@@ -25,11 +27,12 @@ export default function index(props) {
           justifyContent: 'center',
           alignItems: 'center',
           borderRadius: scale(4),
-          borderColor: appColors.gray,
+          borderColor: darkMode  ? appColors.white : appColors.gray,
           borderWidth: 1,
-          minHeight: scale(55),
-          minWidth: scale(55),
-           margin: scale(5),
+          minHeight: scale(56),
+          minWidth: scale(56),
+          //margin: scale(5),
+           
            
         },
         state?.bg,
@@ -55,3 +58,5 @@ const styles = StyleSheet.create({
     backgroundColor: appColors.exist,
   },
 });
+
+export default ReduxWrapper(index)

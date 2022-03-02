@@ -21,6 +21,7 @@ function Home({toggleDarkMode$}) {
       
     return (
         <Container style={styles.container}>
+          <CustomButton  style={{backgroundColor:appColors.primary}}  onPress={toggleDarkMode$} label="Dark Mode" />
         <Game />
       </Container>
     )
