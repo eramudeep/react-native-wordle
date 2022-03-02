@@ -1,5 +1,5 @@
 # [react-native-wordle](https://amusoftech.xyz/)
-# [Docs are here](./docs/)
+ 
 Popular wordle game with  React Native.
 ####  Dark Mode Enabled 🔆
 ## Requirements
@@ -21,7 +21,7 @@ Popular wordle game with  React Native.
 On the command prompt run the following commands
 
 ```sh
-$ git clone https://github.com/noddy1996/react-native-redux-starter.git
+$ git clone https://github.com/eramudeep/react-native-wordle.git
 
 $ cd react-native-redux-starter/
 

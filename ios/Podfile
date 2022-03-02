@@ -3,12 +3,12 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'react_native_redux_starter' do
+target 'Wordle' do
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
 
-  target 'react_native_redux_starterTests' do
+  target 'WordleTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -23,10 +23,10 @@ target 'react_native_redux_starter' do
   #end
 end
 
-target 'react_native_redux_starter-tvOS' do
-  # Pods for react_native_redux_starter-tvOS
+target 'Wordle-tvOS' do
+  # Pods for Wordle-tvOS
 
-  target 'react_native_redux_starter-tvOSTests' do
+  target 'Wordle-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
