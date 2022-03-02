@@ -7,7 +7,7 @@ import { appColors } from '../../utils/appColors'
 function Label({text,style, appState:{darkMode}}) {
      
     return (
-    <Text style={[styles.label,style, darkMode?  styles.dark : styles.light  ]}>{text}</Text>
+    <Text style={[styles.label,darkMode?  styles.dark : styles.light ,style ]}>{text}</Text>
     )
 }
 

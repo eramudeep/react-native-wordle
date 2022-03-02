@@ -20,41 +20,44 @@ const keyboard = {
 
 
 function Key(props) {
-    const [state, setState] = useState({}/* "bg-gray-200 hover:bg-gray-300 dark:bg-zinc-400 dark:text-white dark:hover:bg-zinc-500" */);
+    const [state, setState] = useState({label:{color:appColors.black}});
   
     const x = props.value.length === 1 ? "w-7 sm:w-10 " : "p-2 sm:p-4 ";
     const returnKey = () => {
       props.getKey(props.value);
     };
+    const getIcon  = ()=>{
+      if(props.value === "DEL"){
+       return  {name:"backspace",size:scale(20)}
+      }
+      if(props.value === "ENTER"){
+        return  {name:"check",size:scale(20)}
+      }
+       return null
+    }
   
     useEffect(() => {
       setTimeout(() => {
-        if (props.state === "C") {
-          //setState("bg-correct text-white");
-          setState(styles.correct);
+        if (props.state === "C") { 
+          setState({label:{color:appColors.white} , bg: styles.correct});
         }
-        if (props.state === "E") {
-          //setState("bg-exist text-white");
-          setState(styles.exist);
+        if (props.state === "E") { 
+          setState({label:{color:appColors.white} , bg: styles.exist});
         }
-        if (props.state === "N") {
-          //setState("bg-wrong text-white dark:bg-gray-600");
-          setState(styles.inCorrect);
+        if (props.state === "N") { 
+          setState({label:{color:appColors.white} , bg: styles.inCorrect});
         }
       }, 350);
     }, [props.state]);
   
     return (
-      <CustomButton
-       /*  className={
-          x +
-          state +
-          " h-14 300 grid items-center rounded font-semibold cursor-pointer"
-        } */
+      <CustomButton 
 
-        style={[{paddingHorizontal:scale( 10) },state]}
-        onPress={returnKey}
+        style={[{paddingHorizontal:scale( 10) },state?.bg]}
+        onPress={returnKey} 
         label={props.value === "DEL" ? "Back" :props.value}
+        iconProps={ getIcon()}
+         labelStyle={state?.label }
       >
          
       </CustomButton>
@@ -72,7 +75,7 @@ function index(props) {
       props?.keyHandler(value);
     };
     return (
-      <View className="flex flex-col items-center w-100 pb-5">
+      <View>
         <View  style={{ marginVertical:scale( 5), justifyContent:'space-between', flexDirection:'row', alignItems:'center', alignContent:'center'}} >
           {keyboard.line1.split("").map((value, key) => (
             <Key
@@ -83,7 +86,7 @@ function index(props) {
             />
           ))}
         </View>
-        <View  style={{paddingHorizontal:scale(20), marginVertical:scale( 5), justifyContent:'space-between', flexDirection:'row', alignItems:'center', alignContent:'center'}}>
+        <View  style={{paddingHorizontal:scale(10), marginVertical:scale( 5), justifyContent:'space-between', flexDirection:'row', alignItems:'center', alignContent:'center'}}>
           {keyboard.line2.split("").map((value, key) => (
             <Key
               getKey={keyHandler}

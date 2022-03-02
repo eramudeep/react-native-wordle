@@ -5,7 +5,7 @@ import Label from '../Label';
 export default function index({error}) {
   if (!error) return null;
   return (
-    <View>
+    <View style={{flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
       <Label text={error} />
     </View>
   );

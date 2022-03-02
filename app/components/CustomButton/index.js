@@ -4,11 +4,13 @@ import { scale } from 'react-native-size-matters'
 import { appColors } from '../../utils/appColors'
 import TouchableRipple from 'react-native-touch-ripple'
 import Label from '../Label'
-
-export default function index({label,style,onPress,labelStyle}) {
+import MaterialIcons from 'react-native-vector-icons/dist/MaterialIcons'; 
+export default function index({label,style,onPress,labelStyle, iconProps}) {
     return (
         <TouchableRipple rippleColor={appColors.white} onPress={onPress} rippleDuration={800} style={[styles.container,style]}> 
-            <Label text={`${label}`.toUpperCase()} style={[styles.label,labelStyle]}/>
+           {iconProps? <MaterialIcons  {...iconProps}/>
+           :
+            <Label text={`${label}`.toUpperCase()} style={[styles.label,labelStyle]}/>}
         </TouchableRipple>
     )
 }
